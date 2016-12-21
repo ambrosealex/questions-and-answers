@@ -1,0 +1,17 @@
+<div id = "home" ng-controller = "homeController">
+    <h1>Hi, {{ user }} </h1>
+    <a href="#!/new_question">Add a Question</a><a href="#!/">Logout</a> <br>
+    Search <input type="text" ng-model="search.question" placeholder="filter by question">
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Answers</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat = "question in questions | filter:search">
+            <td>{{ question.question }}</td>
+            <td>{{ question.answers.length }}</td>
+            <td><a href="#!/question/{{ question._id }}">Show</a><a href="#!/question/{{ question._id}}/new_answer ">Answer</a></td>
+        </tr>
+    </table>
+</div>

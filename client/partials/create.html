@@ -1,0 +1,10 @@
+<div ng-controller = "createController">
+    <a href="#!/home">Home</a><a href="#!/login">Logout</a>
+    <h1>New Question</h1>
+    <form class="" ng-submit="callCreateQuestion(newQuestion)">
+        Question <input type="text" ng-model="newQuestion.question"> <br>
+        Description (optional) <input type="text" ng-model="newQuestion.description"> <br>
+        <a href="#!/home" id = "cancel"><button type="button">Cancel</button></a><input type="submit" name="createBtn" value="Submit">
+    </form>
+    <h3 ng-repeat = "message in messages" color = "maroon">{{message}}</h3>
+</div>
