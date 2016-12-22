@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Answer = mongoose.model('Answer');
+var Question = mongoose.model('Question');
 
 module.exports = {
   index: function(req, res) {
@@ -22,7 +23,14 @@ module.exports = {
           } else {
               console.log("Successfully Saved:", answer);
           }
-          res.json({ answer: answer })
+          Question.update({ _id:req.body.question_id }, {$push : {answers: answer}}, function(err) {
+              if(err){
+                  console.log(err);
+              }
+              else {
+                  res.json({ answer: answer });
+              }
+          })
       })
   }
 }
